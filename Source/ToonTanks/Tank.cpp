@@ -16,3 +16,16 @@ ATank::ATank()
 	Camera = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
 	Camera->SetupAttachment(CameraSpringArm);
 }
+
+void ATank::SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent)
+{
+	Super::SetupPlayerInputComponent(PlayerInputComponent);
+
+	PlayerInputComponent->BindAxis(TEXT("MoveForward"), this, &ATank::Move);
+}
+
+void ATank::Move(float Value)
+{
+	FVector DeltaLocation(Value, 0.f, 0.f);
+	AddActorLocalOffset(DeltaLocation);
+}
