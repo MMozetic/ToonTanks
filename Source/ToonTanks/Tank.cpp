@@ -2,6 +2,7 @@
 
 #include "GameFramework/SpringArmComponent.h"
 #include "Camera/CameraComponent.h"
+#include "Kismet/GameplayStatics.h"
 #include "Tank.h"
 
 // Sets defaut values
@@ -27,5 +28,6 @@ void ATank::SetupPlayerInputComponent(class UInputComponent* PlayerInputComponen
 void ATank::Move(float Value)
 {
 	FVector DeltaLocation(Value, 0.f, 0.f);
-	AddActorLocalOffset(DeltaLocation);
+
+	AddActorLocalOffset(DeltaLocation * Speed * UGameplayStatics::GetWorldDeltaSeconds(this));
 }

@@ -6,9 +6,7 @@
 #include "BasePawn.h"
 #include "Tank.generated.h"
 
-/**
- * 
- */
+
 UCLASS()
 class TOONTANKS_API ATank : public ABasePawn
 {
@@ -29,4 +27,9 @@ private:
 	class UCameraComponent* Camera;
 
 	void Move(float Value);
+
+protected:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Movement")
+	float Speed = 100.0f;
+
 };
