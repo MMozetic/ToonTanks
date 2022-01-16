@@ -19,6 +19,9 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
+	// Called every frame
+	virtual void Tick(float DeltaTime) override;
+
 private:
 	UPROPERTY(VisibleAnywhere, Category = "Components")
 	class USpringArmComponent* CameraSpringArm;
@@ -27,9 +30,17 @@ private:
 	class UCameraComponent* Camera;
 
 	void Move(float Value);
+	void Turn(float Value);
+
+	APlayerController* PlayerController;
 
 protected:
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Movement")
-	float Speed = 100.0f;
+	// Called when the game starts or when spawned
+	virtual void BeginPlay() override;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Movement")
+	float Speed = 200.0f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Movement")
+	float TurnRate = 50.0f;
 };
