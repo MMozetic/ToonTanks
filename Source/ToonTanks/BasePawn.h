@@ -31,4 +31,7 @@ protected:
 	void RotateTurret(const FVector LookAtTarget);
 
 	void Fire();
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Attack")
+	TSubclassOf<class AProjectile> ProjectileClass;
 };
