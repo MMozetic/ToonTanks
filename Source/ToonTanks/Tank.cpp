@@ -46,6 +46,20 @@ void ATank::Tick(float DeltaTime)
 	}
 }
 
+void ATank::HandleDestruction()
+{
+	Super::HandleDestruction();
+
+	SetActorHiddenInGame(true);
+	SetActorTickEnabled(false);
+
+	if (PlayerController)
+	{
+		DisableInput(PlayerController);
+		PlayerController->bShowMouseCursor = false;
+	}
+}
+
 void ATank::Move(float Value)
 {
 	FVector DeltaLocation(0.f);

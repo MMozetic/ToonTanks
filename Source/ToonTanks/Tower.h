@@ -18,6 +18,8 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	void HandleDestruction();
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -26,7 +28,7 @@ protected:
 
 private:
 	UPROPERTY(EditAnywhere, Category = "Attack")
-	float FireRange = 600.f;
+	float FireRange = 750.f;
 
 	FTimerHandle FireRateTimerHandle;
 
