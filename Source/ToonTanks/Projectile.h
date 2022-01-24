@@ -34,7 +34,7 @@ private:
 	void OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit);
 
 	UPROPERTY(EditAnywhere)
-	float Damage = 50.f;
+	float Damage = 25.f;
 
 	UPROPERTY(EditAnywhere, Category = "Attack")
 	UParticleSystem* HitParticles;
