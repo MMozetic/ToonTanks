@@ -19,7 +19,7 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-	UPROPERTY(EditAnywhere, Category="Components")
+	UPROPERTY(EditAnywhere, Category = "Components")
 	UStaticMeshComponent* ProjectileMesh;
 
 	UPROPERTY(VisibleAnywhere, Category = "Components")
@@ -35,4 +35,19 @@ private:
 
 	UPROPERTY(EditAnywhere)
 	float Damage = 50.f;
+
+	UPROPERTY(EditAnywhere, Category = "Attack")
+	UParticleSystem* HitParticles;
+
+	UPROPERTY(VisibleAnywhere, Category = "Attack")
+	class UParticleSystemComponent* TrailParticle;
+
+	UPROPERTY(EditAnywhere, Category = "Attack")
+	class USoundBase* LaunchSound;
+
+	UPROPERTY(EditAnywhere, Category = "Attack")
+	USoundBase* HitSound;
+
+	UPROPERTY(EditAnywhere, Category = "Attack")
+	TSubclassOf<UCameraShakeBase> HitCameraShakeClass;
 };
